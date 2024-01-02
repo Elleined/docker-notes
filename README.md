@@ -36,4 +36,5 @@ Notes for Docker
 - The legendary phrase "it works on my machine"
 - Dependecies versioning conflict
 - Time consuming application environment set up
-- For easy sharing of your applicatiom with just them literally run the project no need for them to set up anything.
+- Updating application versioning in different machine in one place.
+- For easy sharing of your application with just them literally run the project no need for them to set up anything.
