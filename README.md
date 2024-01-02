@@ -3,7 +3,7 @@ Notes for Docker
 
 # What is Docker?
 -
-# Why do we need docker?
+# When do we need docker?
 - Suppose you are developing an application and you already finish it, now you have these system specification to run your app in another machine.
 
 ##### Application Tech Stack
@@ -27,3 +27,13 @@ Notes for Docker
 - UAT(User Acceptance Testing)
 - PILOT(Pre-production environment)
 - PROD(Production environment)
+
+# Why do we need docker?
+- For different application environments
+- For versioning of our application tech stack and dependecies.
+
+# Commong problems that docker solves
+- The legendary phrase "it works on my machine"
+- Dependecies versioning conflict
+- Application environment set up
+- For easy sharing of your applicatiom with just them literally run the project no need for them to set up anything.
