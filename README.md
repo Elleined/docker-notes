@@ -34,7 +34,7 @@ Notes for Docker
 
 # Commong problems that docker solves
 - The legendary phrase "it works on my machine"
-- Dependecies versioning conflict
+- Application dependecies versioning conflict
 - Time consuming application environment set up
-- Updating application versioning in different machine in one place.
+- Updating application dependencies in different machine in one place.
 - For easy sharing of your application with just them literally run the project no need for them to set up anything.
