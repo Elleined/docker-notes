@@ -2,7 +2,19 @@
 Notes for Docker
 
 # What is Docker?
--
+- Is it a lightweight and open source application used for containerization of our application.
+
+# What is containerization
+- Containerization is making our application code + required dependencies into one executable file.
+
+# What is Docker Image
+- It is the application code + required dependencies.
+
+# Docker workflow
+1. Containerize our application code + required dependency to create docker image
+2. After we create docker image it will be used by other developer to run our application to their machine.
+3. When other developers get our docker image and run it in their machine it will automatically create docker container.
+
 # When do we need docker?
 - Suppose you are developing an application and you already finish it, now you have these system specification to run your app in another machine.
 
