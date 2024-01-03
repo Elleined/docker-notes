@@ -53,3 +53,9 @@ Notes for Docker
 
 # Docker Advantage
 # Docker Disadvantage
+
+# Docker Architecture
+- Dockerfile
+- Docker Image
+- Docker Registry
+- Docker Container
