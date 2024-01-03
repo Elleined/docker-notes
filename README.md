@@ -38,3 +38,6 @@ Notes for Docker
 - Time consuming application environment set up in multiple machines.
 - Updating application dependencies in multiple machine in one place.
 - For easy sharing of your application with just them literally run the project no need for them to set up anything.
+
+# Docker Advantage
+# Docker Disadvantage
