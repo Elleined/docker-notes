@@ -7,9 +7,6 @@ Notes for Docker
 # What is containerization
 - Containerization is the process of making our application code + required dependencies into one executable package.
 
-# What is Docker Image
-- It is the application code + required dependencies.
-
 # Docker workflow
 1. Containerize our application code + required dependency to create docker image
 2. After we create docker image it will be used by other developer to run our application to their machine.
@@ -55,7 +52,12 @@ Notes for Docker
 # Docker Disadvantage
 
 # Docker Architecture
-- Dockerfile
-- Docker Image
+- #### Dockerfile
+- It contains a set of instructions that Docker follows to build the image.
+- It Automate the process of building a reproducible and consistent environment for your application. 
+
+- #### Docker Image
+- It is the application code + required dependencies.
+
 - Docker Registry
 - Docker Container
