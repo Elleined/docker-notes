@@ -68,4 +68,7 @@ Notes for Docker
 - AWS ECR
   
 - ###### Docker Container
+- It internally uses virtualization that means every container linux virtual machine that can run independently.
+- ###### What is Virtualization
+- It is running operating system in another operating system.
 - Will be created in our local machine after we run the docker image.
