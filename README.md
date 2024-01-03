@@ -52,13 +52,17 @@ Notes for Docker
 # Docker Disadvantage
 
 # Docker Architecture
-- #### Dockerfile
+- ###### Dockerfile
 - It contains a set of instructions that Docker follows to build the docker image.
 - It Automate the process of building a reproducible and consistent environment for your application. 
 
-- #### Docker Image
+- ###### Docker Image
 - Created via dockerfile
 - It is the application code + required dependencies.
 
-- Docker Registry
+- ###### Docker Registry/ Hub
+- DockerHub
+- Nexus
+- JFrog
+- AWS ECR
 - Docker Container
