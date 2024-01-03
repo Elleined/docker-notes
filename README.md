@@ -5,7 +5,7 @@ Notes for Docker
 - Is it a lightweight and open source application used for containerization of our application.
 
 # What is containerization
-- Containerization is making our application code + required dependencies into one executable file.
+- Containerization is the process of making our application code + required dependencies into one executable package.
 
 # What is Docker Image
 - It is the application code + required dependencies.
