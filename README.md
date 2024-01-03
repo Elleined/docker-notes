@@ -61,8 +61,11 @@ Notes for Docker
 - It is the application code + required dependencies.
 
 - ###### Docker Registry/ Hub
+- Used to store our docker image just like github.
 - DockerHub
 - Nexus
 - JFrog
 - AWS ECR
-- Docker Container
+  
+- ###### Docker Container
+- Will be created in our local machine after we run the docker image.
