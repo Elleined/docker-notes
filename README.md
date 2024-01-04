@@ -69,6 +69,11 @@ Notes for Docker
   
 - ###### Docker Container
 - It internally uses virtualization that means every container linux virtual machine that can run independently.
-- ###### What is Virtualization
-- It is running operating system in another operating system.
 - Will be created in our local machine after we run the docker image.
+
+# How does docker become lightweight?
+- Docker uses virtualization which leveraging the use of virtual machine and share the host OS kernel unlike normal virtual machine its has its own OS and separate kernel that can be resource-intensive.
+
+# What is Virtualization?
+- It is running operating system in another operating system.
+
