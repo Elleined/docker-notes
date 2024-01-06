@@ -79,3 +79,40 @@ Notes for Docker
 
 # How does docker become lightweight?
 - Docker uses virtualization which leveraging the use of virtual machine and share the host OS kernel unlike normal virtual machine its has its own OS and separate kernel that can be resource-intensive.
+
+# Docker Commands
+## Images
+###### docker pull
+- pull the docker image from remote repository and download it in your local machine.
+```
+docker pull <image-id/ image-name>
+```
+
+###### docker images
+- see the list of docker images available in your machine.
+```
+docker images
+```
+###### docker rmi
+- used to delete a docker image in your machine.
+```
+docker rmi <image-id/ image-name>
+```
+
+###### docker run (container-creation
+- used to run docker image to create docker container in your machine.
+```
+docker run <image-id/ image-name> 
+```
+
+## Containers
+###### docker rm
+- Used to delete a docker container.
+```
+docker rm <container-id>
+```
+###### docker ps
+- Used to see all the available docker container in your machine.
+```
+docker ps
+```
