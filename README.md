@@ -141,7 +141,7 @@ docker rm <container_id/ container_name>
 |---|---|---|
 | **FROM** | Specifies the base image to inherit from. | FROM <image_name>
 | **MAINTAINER** | Sets the author of the image. |  MAINTAINER <name>
-| **RUN** | Executes commands during the image build process. | RUN ["<executable>", "<param1>", "<param2>"]
+| **RUN** | Executes any linux commands during the image build process. | RUN ["<executable>", "<param1>", "<param2>"]
 | **ENV** | Sets environment variables accessible within the image and running container. | ENV <key> = <value>
 | **COPY** | Copies files or folders from the host system into the image. | COPY <source> <destination>
 | **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | EXPOSE <port>
