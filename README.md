@@ -73,15 +73,76 @@ Notes for Docker
 # Docker Commands
 ## Images
 - *docker images*: List all downloaded images in you machine.
+```
+docker images
+```
+
 - *docker push*: Will push a docker image from your machine to remote repository(Dockerhub).
+```
+docker push <image_id/ image_name>
+
+docker push <user_name>/<repository_name>:<tag_name>
+```
+
 - *docker pull*: Will pull a docker image from remote repository(Dockerhub) to your machine.
+```
+docker pull <image_name>
+
+docker pull <user_name>/<repository_name>:<tag_name>
+```
+
 - *docker rmi*: Used to delete docker image.
+```
+docker rmi <image_id/ image_name>
+```
+
 - *docker build*: Used to create docker image using dockerfile.
+```
+docker build -t <image_name_you_want>:<tag_name_you_want>
+```
 
 ## Containers
 - *docker pa -a*: list all docker container in your machine.
-- *docker run*: Used to run docker image thus creating a docker container.
-- *docker start*: Used to start a stopped docker container.
-- *docker stop*: Used to stop a running docker container.
-- *docker rm*: Used to delete a stopped docker container.
+```
+docker pa -a
+```
 
+- *docker run*: Used to run docker image thus creating a docker container.
+```
+docker run <image_id/ image_name>
+```
+
+- *docker start*: Used to start a stopped docker container.
+```
+docker start <container_id/ container_name>
+```
+
+- *docker stop*: Used to stop a running docker container.
+```
+docker stop <container_id/ container_name>
+```
+
+- *docker rm*: Used to delete a stopped docker container.
+```
+docker rm <container_id/ container_name>
+```
+
+# Dockerfile
+- Used to create a docker image.
+
+## Dockerfile basic structure
+| Instruction | Description |
+|---|---|
+| **FROM** | Specifies the base image to inherit from. |
+| **RUN** | Executes commands during the image build process. |
+| **ENV** | Sets environment variables accessible within the image and running container. |
+| **COPY** | Copies files or folders from the host system into the image. |
+| **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). |
+| **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. |
+| **WORKDIR** | Sets the working directory within the container. |
+| **VOLUME** | Creates or mounts volumes accessible to the container. |
+| **USER** | Sets the user and user ID for the container process. |
+| **LABEL** | Adds metadata information to the image. |
+| **ARG** | Defines build-time variables not accessible within running containers. |
+| **CMD** | Executes a command when the container starts (only one permitted). |
+| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). |
