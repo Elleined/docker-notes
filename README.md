@@ -131,18 +131,18 @@ docker rm <container_id/ container_name>
 - Used to create a docker image.
 
 ## Dockerfile basic structure
-| Instruction | Description |
-|---|---|
-| **FROM** | Specifies the base image to inherit from. |
-| **RUN** | Executes commands during the image build process. |
-| **ENV** | Sets environment variables accessible within the image and running container. |
-| **COPY** | Copies files or folders from the host system into the image. |
-| **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). |
+- [For more reference about building dockerfile](https://kapeli.com/cheat_sheets/Dockerfile.docset/Contents/Resources/Documents/index)
+
+| Instruction | Description | Syntax
+|---|---|---|
+| **FROM** | Specifies the base image to inherit from. | FROM <image_name>
+| **MAINTAINER** | Sets the author of the image. |  MAINTAINER <name>
+| **RUN** | Executes commands during the image build process. | RUN ["<executable>", "<param1>", "<param2>"]
+| **ENV** | Sets environment variables accessible within the image and running container. | ENV <key> = <value>
+| **COPY** | Copies files or folders from the host system into the image. | COPY <source> <destination>
+| **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | EXPOSE <port>
 | **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. |
-| **WORKDIR** | Sets the working directory within the container. |
-| **VOLUME** | Creates or mounts volumes accessible to the container. |
-| **USER** | Sets the user and user ID for the container process. |
-| **LABEL** | Adds metadata information to the image. |
-| **ARG** | Defines build-time variables not accessible within running containers. |
-| **CMD** | Executes a command when the container starts (only one permitted). |
-| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). |
+| **WORKDIR** | Sets the working directory within the container. | WORKDIR <path/to/your/working_directory>
+| **USER** | Sets the user and user ID for the container process. | USER <user_name/ UID>
+| **CMD** | Executes a command when the container starts (only one permitted). | CMD ["<executable>","<param1>","<param2>"]
+| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). | ENTRYPOINT ["<executable>", "<param1>", "<param2>"]
