@@ -71,7 +71,7 @@ Notes for Docker
 - Docker uses virtualization which leveraging the use of virtual machine and share the host OS kernel unlike normal virtual machine its has its own OS and separate kernel that can be resource-intensive.
 
 # Docker Commands
-- *docker init*: Will initialize a docker environment in current directory.
+- *docker init*: Will initialize a docker environment in current directory. (Only executable if you have Docker Desktop installed).
   
 ## Images
 - *docker images*: List all downloaded images in you machine.
