@@ -42,22 +42,22 @@ Notes for Docker
 - For easy sharing of your application with just them literally run the project no need for them to set up anything.
 
 # Docker Architecture
-- ###### Dockerfile
+## Dockerfile
 - It contains a set of instructions that Docker follows to build the docker image.
 - It Automate the process of building a reproducible and consistent environment for your application. 
 
-- ###### Docker Image
+## Docker Image
 - Created via dockerfile
 - It is the application code + required dependencies.
 
-- ###### Docker Registry/ Hub
+## Docker Registry/ Hub
 - Used to store our docker image just like github.
 - DockerHub
 - Nexus
 - JFrog
 - AWS ECR
   
-- ###### Docker Container
+## Docker Container
 - It internally uses virtualization that means every container linux virtual machine that can run independently.
 - Will be created in our local machine after we run the docker image.
 
