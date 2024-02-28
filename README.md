@@ -30,16 +30,9 @@ Notes for Docker
 
 - Now you want to run your application to run in another machine you will set up you application environment with that machine in order to run your app and everything seems fine, but your manager says he also want it to run in his/ her machine you will go to where his/ her machine just to set up your application environment right? and everything ok, but now everyone now wants to run you application to their machine and have the application environment below specific to them what will you do now? You will now use docker help with your application environment to be set up in everyone's machine.
 
-##### Application environments
-- DEV(Development)
-- SIT(System Integration Testing)
-- UAT(User Acceptance Testing)
-- PILOT(Pre-production environment)
-- PROD(Production environment)
-
 # Why do we need docker?
 - For different application environments
-- For versioning of our application tech stack and dependecies.
+- For managing versioning of our application tech stack and dependecies.
 
 # Commong problems that docker solves
 - The legendary phrase "it works on my machine"
@@ -47,9 +40,6 @@ Notes for Docker
 - Time consuming application environment set up in multiple machines.
 - Updating application dependencies in multiple machine in one place.
 - For easy sharing of your application with just them literally run the project no need for them to set up anything.
-
-# Docker Advantage
-# Docker Disadvantage
 
 # Docker Architecture
 - ###### Dockerfile
@@ -99,7 +89,7 @@ docker images
 docker rmi <image-id/ image-name>
 ```
 
-###### docker run (container-creation
+###### docker run (container-creation)
 - used to run docker image to create docker container in your machine.
 ```
 docker run <image-id/ image-name> 
