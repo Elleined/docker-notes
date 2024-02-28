@@ -72,37 +72,16 @@ Notes for Docker
 
 # Docker Commands
 ## Images
-###### docker pull
-- pull the docker image from remote repository and download it in your local machine.
-```
-docker pull <image-id/ image-name>
-```
-
-###### docker images
-- see the list of docker images available in your machine.
-```
-docker images
-```
-###### docker rmi
-- used to delete a docker image in your machine.
-```
-docker rmi <image-id/ image-name>
-```
-
-###### docker run (container-creation)
-- used to run docker image to create docker container in your machine.
-```
-docker run <image-id/ image-name> 
-```
+- *docker images*: List all downloaded images in you machine.
+- *docker push*: Will push a docker image from your machine to remote repository(Dockerhub).
+- *docker pull*: Will pull a docker image from remote repository(Dockerhub) to your machine.
+- *docker rmi*: Used to delete docker image.
+- *docker build*: Used to create docker image using dockerfile.
 
 ## Containers
-###### docker rm
-- Used to delete a docker container.
-```
-docker rm <container-id>
-```
-###### docker ps
-- Used to see all the available docker container in your machine.
-```
-docker ps
-```
+- *docker pa -a*: list all docker container in your machine.
+- *docker run*: Used to run docker image thus creating a docker container.
+- *docker start*: Used to start a stopped docker container.
+- *docker stop*: Used to stop a running docker container.
+- *docker rm*: Used to delete a stopped docker container.
+
