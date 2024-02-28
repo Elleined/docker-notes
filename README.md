@@ -100,7 +100,9 @@ docker rmi <image_id/ image_name>
 
 - *docker build*: Used to create docker image using dockerfile.
 ```
-docker build -t <image_name_you_want>:<tag_name_you_want>
+docker build -t <image_name_you_want>:<tag_name_you_want> <dokcer_file_location>
+
+docker build -t my_image:my_tag .
 ```
 
 ## Containers
