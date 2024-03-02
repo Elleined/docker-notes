@@ -111,7 +111,7 @@ docker build -t my_image:my_tag .
 ```
 
 ## Containers
-- *docker pa -a*: list all docker container in your machine.
+- *docker ps -a*: list all docker container in your machine.
 ```
 docker pa -a
 ```
@@ -144,19 +144,19 @@ Example: docker exec -t 12345 /bin/bash
 ```
 
 ## Network
-- *docker ls*: List all docker networks
+- *docker network ls*: List all docker networks
 ```
-docker ls
-```
-
-- *docker create*: Create a user-defined network.
-```
-docker create <network_name>
+docker network ls
 ```
 
-- *docker rm*: Delete a network
+- *docker network create*: Create a user-defined network.
 ```
-docker rm <network_name>
+docker network create <network_name>
+```
+
+- *docker network rm*: Delete a network
+```
+docker network rm <network_name>
 ```
 
 ### Run docker image inside user-defined network
@@ -165,16 +165,16 @@ docker run -itd --rm --network <network_name> --name <container_name_you_want> <
 ```
 
 # Docker network
-- Networking in docker is almost the same concept in groups of people in real world. Why I said that? When you run docker image it will create a container right? But arent you wondering what network does that container running? It is running on default docker network which is  the metwork name bridge and network type or driver bridge.
+- Networking in docker is almost the same concept in groups of people in real world. Why I said that? When you run docker image it will create a container right? But arent you wondering what network does that container running? It is running on default docker network which is  the network name bridge and network type or driver bridge.
 - If theres a default network it means that we can create our own docker network and we can run a docker container with our own docker network created.
 - [Docker networking tutorial (Network Chuck)](https://www.youtube.com/watch?v=bKFMS5C4CG0)
 
 ##### Analogy: Think of group of people as network and every people want to join a group(network). And  people without a group(network) belongs to nothing in our case the default network where everyone resides. So when a people join a group(network) they will belong to that group(network) right. So in that case the people inside that group(network) will be able to communicate in isolation and security and people that are not belong to the group will not able to talk to them the same goes to them they not able to talk to peoaple outside the group.
 
-##### NOTE: when you execute docker run without specifying the network it will reside in default network name bridge and metwork type bridge.
+##### NOTE: when you execute docker run without specifying the network it will reside in default network name bridge and network type bridge.
 
 ## Why docker networking important
-- For you to have two container to talk to each other you need them to be running in the same network. For example you app and your app database right those two need to run in the same netowrk to able to talk to each other.
+- For you to have two container to talk to each other you need them to be running in the same network. For example you app and your app database right those two need to run in the same network to able to talk to each other.
 
 # Dockerfile
 - Used to create a docker image.
