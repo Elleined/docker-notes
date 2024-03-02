@@ -203,3 +203,82 @@ docker run -itd --rm --network <network_name> --name <container_name_you_want> <
 # Definition of Terms
 - *dockerfile instruction (FROM, COPY, etc...)*: Also the same as layer.
 - *tarball*: Compressed file.
+
+# Tutorial for Dockerization of Spring Boot with MySQL Database
+- [Comprehensive YT Tutorial](https://youtu.be/PAQvxqocb6A)
+- For this I will make example of my social-media-api to dockerization.
+
+## 1. Create a network
+```
+docker network create <network_name>
+
+Example:
+docker network create sma-network
+```
+
+## 2. Docker pull/ run MySQL image
+```
+docker run -itd --rm -p <external_port>:<internal_port> --network <network_name_specified_above> --name <container_name_you_want> MYSQL_ROOT_PASSWORD=<root_password> -e MYSQL_DATABASE=<first_database_to_be_created_in_startup> <image_name>
+
+Example:
+docker run -itd --rm -p 3307:3306 --network sma-network --name sma_mysql_server -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=social_media_api_db mysql:8.0.32
+```
+
+## 3. Execute maven clean and install
+```
+mvn clean install
+```
+
+## 4. Go to pom.xml inside <build> tag
+```
+<build>
+  <finalName> jar_file_name_you_want </finalName>
+</build>
+
+Example:
+<build>
+  <finalName> social-media-api </finalName>
+</build>
+```
+
+## 5. Create Dockerfile
+- For this just learn more about how to create a dockerfile. But I have example here.
+```docker
+FROM openjdk:17-alpine
+MAINTAINER Elleined
+
+# Docker MySQL Credentials
+ENV MYSQL_HOST=sma_mysql_server
+ENV MYSQL_USER=root
+ENV MYSQL_PASSWORD=root
+ENV MYSQL_PORT=3306
+ENV MYSQL_DATABASE=social_media_api_db
+
+ADD ./target/*.jar social-media-api.jar
+EXPOSE 8081
+CMD ["java", "-jar", "social-media-api.jar"]
+
+```
+
+## 6. Make your APP application properties MySQL properties read from ENV
+```
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}
+spring.datasource.username=${MYSQL_USER}
+spring.datasource.password=${MYSQL_PASSWORD}
+```
+
+## Docker Build your Dockerfile to create Docker image.
+```
+docker build -t <container_name_you_want>:<tag_name_you_want> <Dockerfile_path>
+
+Example:
+docker build -t sma:latest .
+```
+
+## 8. Docker Run your app
+```
+docker run -itd --rm -p <external_por>:<internal_port> --network <network_name_specified_above> --name <container_name_you_want> <image_name>
+
+Example:
+docker run -itd --rm -p 8081:8081 --network sma-network --name sma_app sma
+```
