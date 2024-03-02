@@ -131,6 +131,13 @@ docker stop <container_id/ container_name>
 docker rm <container_id/ container_name>
 ```
 
+### How to connect inside the terminal of running container
+```
+docker exec -it <container_id> /bin/<bash | sh>
+
+Example: docker exec -t 12345 /bin/bash
+```
+
 # Dockerfile
 - Used to create a docker image.
 
@@ -145,8 +152,21 @@ docker rm <container_id/ container_name>
 | **ENV** | Sets environment variables accessible within the image and running container. | ENV <key> = <value>
 | **COPY** | Copies files or folders from the host system into the image. | COPY <source> <destination>
 | **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | EXPOSE <port>
+| **ARG** | Declare private variable only accessible within the dockerfile. | ARG <key> = <value>
 | **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. |
 | **WORKDIR** | Sets the working directory within the container. | WORKDIR <path/to/your/working_directory>
 | **USER** | Sets the user and user ID for the container process. | USER <user_name/ UID>
 | **CMD** | Executes a command when the container starts (only one permitted). | CMD ["<executable>","<param1>","<param2>"]
 | **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). | ENTRYPOINT ["<executable>", "<param1>", "<param2>"]
+
+## Why you need to structure properly your dockerfile
+- Since every instructions in dockerfile is a layer and every layer inherits from the previous layer it is important to write your dockerfile efficiently and make the most of docker caching.
+- Everytime you modify a dockerfile you need to rebuild it making your dockerfile layering important, when you rebuild dockerfile and docker engine don't see any changes from specific layer it will use the cache.
+- So dockerfile structure must be from less frequent changing contens to frequently changing content.
+- Because when docker see a changes from one of the layer it will rebuild all remaining layer that's why we need to place the frequently change content in the bottom of dockerfile and the less frequent to change is in top. Memory management is a must!.
+
+###### Note: You can only have one CMD command and ENTRYPOINT in docker other commands can be executed multiple times.
+
+# Definition of Terms
+- *dockerfile instruction (FROM, COPY, etc...)*: Also the same as layer.
+- *tarball*: Compressed file.
