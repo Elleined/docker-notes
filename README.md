@@ -178,18 +178,18 @@ docker run -itd --rm --network <network_name> --name <container_name_you_want> <
 
 | Instruction | Description | Syntax
 |---|---|---|
-| **FROM** | Specifies the base image to inherit from. | FROM <image_name>
-| **MAINTAINER** | Sets the author of the image. |  MAINTAINER <name>
-| **RUN** | Executes any linux commands during the image build process. | RUN ["<executable>", "<param1>", "<param2>"]
-| **ENV** | Sets environment variables accessible within the image and running container. | ENV <key> = <value>
-| **COPY** | Copies files or folders from the host system into the image. | COPY <source> <destination>
-| **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | EXPOSE <port>
-| **ARG** | Declare private variable only accessible within the dockerfile. | ARG <key> = <value>
+| **FROM** | Specifies the base image to inherit from. | ```FROM <image_name>```
+| **MAINTAINER** | Sets the author of the image. |  ```MAINTAINER <name>```
+| **RUN** | Executes any linux commands during the image build process. | ```RUN ["<executable>", "<param1>", "<param2>"]```
+| **ENV** | Sets environment variables accessible within the image and running container. | ```ENV <key> = <value>```
+| **COPY** | Copies files or folders from the host system into the image. | ```COPY <source> <destination>```
+| **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | ```EXPOSE <port>```
+| **ARG** | Declare private variable only accessible within the dockerfile. | ```ARG <key> = <value>```
 | **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. |
-| **WORKDIR** | Sets the working directory within the container. | WORKDIR <path/to/your/working_directory>
-| **USER** | Sets the user and user ID for the container process. | USER <user_name/ UID>
-| **CMD** | Executes a command when the container starts (only one permitted). | CMD ["<executable>","<param1>","<param2>"]
-| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). | ENTRYPOINT ["<executable>", "<param1>", "<param2>"]
+| **WORKDIR** | Sets the working directory within the container. | ```WORKDIR <path/to/your/working_directory>```
+| **USER** | Sets the user and user ID for the container process. | ```USER <user_name/ UID>```
+| **CMD** | Executes a command when the container starts (only one permitted). | ```CMD ["<executable>","<param1>","<param2>"]```
+| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). | ```ENTRYPOINT ["<executable>", "<param1>", "<param2>"]```
 
 ## Why you need to structure properly your dockerfile
 - Since every instructions in dockerfile is a layer and every layer inherits from the previous layer it is important to write your dockerfile efficiently and make the most of docker caching.
