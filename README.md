@@ -162,6 +162,7 @@ docker run -itd --rm --network <network_name> --name <container_name_you_want> <
 # Docker network
 - Networking in docker is almost the same concept in groups of people in real world. Why I said that? When you run docker image it will create a container right? But arent you wondering what network does that container running? It is running on default docker network which is  the metwork name bridge and network type or driver bridge.
 - If theres a default network it means that we can create our own docker network and we can run a docker container with our own docker network created.
+- [Docker networking tutorial (Network Chuck)](https://www.youtube.com/watch?v=bKFMS5C4CG0)
 
 ##### Analogy: Think of group of people as network and every people want to join a group(network). And  people without a group(network) belongs to nothing in our case the default network where everyone resides. So when a people join a group(network) they will belong to that group(network) right. So in that case the people inside that group(network) will be able to communicate in isolation and security and people that are not belong to the group will not able to talk to them the same goes to them they not able to talk to peoaple outside the group.
 
