@@ -81,14 +81,12 @@ docker images
 
 - *docker push*: Will push a docker image from your machine to remote repository(Dockerhub).
 ```
-docker tag local-image:tagname new-repo:tagname
-docker push new-repo:tagname
+docker tag <local_image_name>:<local_image_tag_name> <username>/<image_name_you_want>:<image_tag_name_you_want>
+docker push <username>/<image_name_you_want>:<image_tag_name_you_want>
 
-docker push <image_id/ image_name>
-
-docker push <user_name>/<repository_name>:<tag_name>
-
-
+Example:
+docker tag sma:stable elleined/social-media-api:latest
+docker push elleined/social-media-api:latest
 ```
 
 - *docker pull*: Will pull a docker image from remote repository(Dockerhub) to your machine.
