@@ -285,3 +285,42 @@ docker run -itd --rm -p <external_por>:<internal_port> --network <network_name_s
 Example:
 docker run -itd --rm -p 8081:8081 --network sma-network --name sma_app sma
 ```
+
+# What is Docker Compose
+- What is `docker-compose.yml`? It is used to easily manage multi container application using yaml file or configuration file. With just single command you can run and stop all the associated container for your app.
+
+#### Becuase in real world suppose we have 3 entities the Frontend, Backend, and Database these three will have their own images right? and managing them individually is hard and time-consuming so docker compose came into picture where you will manage a multi-contsiner app easily.
+
+## Docker Compose YAML Structure
+```yaml
+version: <docker_compose_version>
+services:
+  api: # You can replace api with your custom service name
+    build: . # Replace . where is your Dockerfile located
+    image: openjdk:17-alpine # Replacement for FROM
+    container_name: my_container # Container name you want and replacement for --name <container_name>
+    restart: always # Just use `always` for restart
+    ports: # List of Ports
+      - "8080:8080" # Replacement for -p <external_port>:<internal_port>
+    environment: # List of ENV
+      - MY_KEY=MY_VALUE # Replacement for -e <my_key>=<my_value>
+    networks: # List of Network
+      - api_network1 # References to network you created below and replacement for --network <network_name>
+    secrets:
+      - api_secret1 # References to secret you created below
+
+networks:
+  api_network1:
+    ipam:
+      driver: default
+    name: api_network # Replace api_network with your custom network name
+    external: false # If Set to true it means that your created this network yourself
+  api_network2:
+
+secrets:
+  api_secret1:
+    file: /path/to/secret_file.txt # Replace the /path/to/secret_file.txt where your secret is located
+    external: false # If Set to true it means that your created this secret yourself
+    name: api_secret # Replace api_network with your custom secret name
+  api_secret2:
+```
