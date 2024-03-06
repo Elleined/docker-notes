@@ -308,6 +308,9 @@ services:
       - api_network1 # References to network you created below and replacement for --network <network_name>
     secrets:
       - api_secret1 # References to secret you created below
+    depends_on:
+      - db # Will wait for the db service to up and running before running this service.
+   db:
 
 networks:
   api_network1:
