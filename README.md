@@ -327,3 +327,37 @@ secrets:
     name: api_secret # Replace api_network with your custom secret name
   api_secret2:
 ```
+
+## Docker Compose Commands
+- *docker-compose start*: will start the stopped containers.
+```
+docker-compose start
+```
+
+- *docker-compose stop*: Will stop the running containers but not delete the docker compose created containers, volumes, networks, and secrets
+```
+docker-compose stop
+```
+
+- *docker-compose restart*: Will restart the containers
+```
+docker-compose restart
+```
+
+- *docker-compose up*: Will pull and run all the services in your docker compose and create the defined networks and secrets.
+```
+docker-compose up
+```
+
+- *docker-compose down*: Will stop and delete all the docker compose created containers, volumes, networks, and secrets.
+```
+docker-compose down
+```
+
+
+
+
+
+
+
+
