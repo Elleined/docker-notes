@@ -236,10 +236,6 @@ docker-compose down
 docker run -v <volume_name>:<container_pre_defined_directory>
 ```
 
-- Method 2: Using host OS directory and container directory.
-```
-docker run -v <host_directory>:<container_pre_define_directory>
-```
 ####### Note: Docker run -v is a short version and --mount is the verbose version
 
 # Dockerfile
