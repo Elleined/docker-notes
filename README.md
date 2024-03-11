@@ -162,6 +162,54 @@ docker network rm <network_name>
 docker run -itd --rm --network <network_name> --name <container_name_you_want> <image_name>
 ```
 
+## Volume
+- *docker volume create*: Create a volume.
+```
+docker volume create <volume_name>
+```
+
+- *docker volume rm*: Remove a volume.
+```
+docker volume rm <volume_name | volume_id>
+```
+
+- *docker volume ls*: List all volumes.
+```
+docker volume ls
+```
+
+- *docker volume inspect*: Return information about the specified volume
+```
+docker volume inspect <volume_name | volume_id>
+```
+
+
+## Docker Compose Commands
+- *docker-compose start*: will start the stopped containers.
+```
+docker-compose start
+```
+
+- *docker-compose stop*: Will stop the running containers but not delete the docker compose created containers, volumes, networks, and secrets
+```
+docker-compose stop
+```
+
+- *docker-compose restart*: Will restart the containers
+```
+docker-compose restart
+```
+
+- *docker-compose up*: Will pull and run all the services in your docker compose and create the defined networks and secrets.
+```
+docker-compose up
+```
+
+- *docker-compose down*: Will stop and delete all the docker compose created containers, volumes, networks, and secrets.
+```
+docker-compose down
+```
+
 # Docker network
 - Networking in docker is almost the same concept in groups of people in real world. Why I said that? When you run docker image it will create a container right? But arent you wondering what network does that container running? It is running on default docker network which is  the network name bridge and network type or driver bridge.
 - If theres a default network it means that we can create our own docker network and we can run a docker container with our own docker network created.
@@ -173,6 +221,19 @@ docker run -itd --rm --network <network_name> --name <container_name_you_want> <
 
 ## Why docker networking important
 - For you to have two container to talk to each other you need them to be running in the same network. For example you app and your app database right those two need to run in the same network to able to talk to each other.
+
+# Docker volume
+- Since container is a virtualize OS it means that they don't have data persistence and all the data will be deleted once the container is removed. And sometimes we want to save the data inside the container that why VOLUMES comes into picture, volumes are used to shared host OS files or directory inside the container or vise versa granting container and host OS to access host OS file system/ Container to have Data Persistence.
+
+## Why use Volumes
+- Provide data persistence outside the container that can be use internally(Localhost) and externally(cloud services).
+- Easier volume management because volumes can be manage via docker commands(Will be discussed later).
+- Sharing data accross different containers.
+
+####### Note: Docker run -v is a short version and --mount is the verbose version
+```
+docker run -v <volume_name>:<container_pre_defined_directory_destination>
+```
 
 # Dockerfile
 - Used to create a docker image.
@@ -327,37 +388,3 @@ secrets:
     name: api_secret # Replace api_network with your custom secret name
   api_secret2:
 ```
-
-## Docker Compose Commands
-- *docker-compose start*: will start the stopped containers.
-```
-docker-compose start
-```
-
-- *docker-compose stop*: Will stop the running containers but not delete the docker compose created containers, volumes, networks, and secrets
-```
-docker-compose stop
-```
-
-- *docker-compose restart*: Will restart the containers
-```
-docker-compose restart
-```
-
-- *docker-compose up*: Will pull and run all the services in your docker compose and create the defined networks and secrets.
-```
-docker-compose up
-```
-
-- *docker-compose down*: Will stop and delete all the docker compose created containers, volumes, networks, and secrets.
-```
-docker-compose down
-```
-
-
-
-
-
-
-
-
