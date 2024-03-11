@@ -230,10 +230,17 @@ docker-compose down
 - Easier volume management because volumes can be manage via docker commands(Will be discussed later).
 - Sharing data accross different containers.
 
+## Docker volume syntax
+- Method 1: Using a named volume and container directory.
+```
+docker run -v <volume_name>:<container_pre_defined_directory>
+```
+
+- Method 2: Using host OS directory and container directory.
+```
+docker run -v <host_directory>:<container_pre_define_directory>
+```
 ####### Note: Docker run -v is a short version and --mount is the verbose version
-```
-docker run -v <volume_name>:<container_pre_defined_directory_destination>
-```
 
 # Dockerfile
 - Used to create a docker image.
