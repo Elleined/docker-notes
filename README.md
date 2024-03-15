@@ -253,11 +253,11 @@ docker run -v <volume_name>:<container_pre_defined_directory>
 | **COPY** | Copies files or folders from the host system into the image. | ```COPY <source> <destination>```
 | **EXPOSE** | Informs Docker that the container listens on specific ports at runtime (doesn't publish ports). | ```EXPOSE <port>```
 | **ARG** | Declare private variable only accessible within the dockerfile. | ```ARG <key> = <value>```
-| **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. |
+| **ADD** | Similar to COPY, but can also extract tarballs and copy files from URLs. | ```ADD <source> <destination>```
 | **WORKDIR** | Sets the working directory within the container. | ```WORKDIR <path/to/your/working_directory>```
 | **USER** | Sets the user and user ID for the container process. | ```USER <user_name/ UID>```
-| **CMD** | Executes a command when the container starts (only one permitted). | ```CMD ["<executable>","<param1>","<param2>"]```
-| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD). | ```ENTRYPOINT ["<executable>", "<param1>", "<param2>"]```
+| **CMD** | Executes a command when the container starts (only one permitted) and parameter can be overwritten | ```CMD ["<executable>","<param1>","<param2>"]```
+| **ENTRYPOINT** | Defines the command(s) executed when the container starts (overrides CMD) and parameter cannot be overwritten | ```ENTRYPOINT ["<executable>", "<param1>", "<param2>"]```
 
 ## Why you need to structure properly your dockerfile
 - Since every instructions in dockerfile is a layer and every layer inherits from the previous layer it is important to write your dockerfile efficiently and make the most of docker caching.
@@ -361,7 +361,6 @@ version: <docker_compose_version>
 services:
   api: # You can replace api with your custom service name
     build: . # Replace . where is your Dockerfile located
-    image: openjdk:17-alpine # Replacement for FROM
     container_name: my_container # Container name you want and replacement for --name <container_name>
     restart: always # Just use `always` for restart
     ports: # List of Ports
@@ -372,9 +371,16 @@ services:
       - api_network1 # References to network you created below and replacement for --network <network_name>
     secrets:
       - api_secret1 # References to secret you created below
-    depends_on:
-      - db # Will wait for the db service to up and running before running this service.
+    depends_on: 
+      db: # Will wait for the db service to up and running before running this service.
+         condition: service_healthy # Will make sure db healthcheck passed
    db:
+    healthcheck:
+      test: # Execute a command to check if service is running correctly
+      interval: 10s # Interval between checks (default: 10s)
+      timeout: 10s # Maximum time for check to succeed (default: 10s)
+      retries: 5s # Number of retries before considering unhealthy (default: 5s)
+      start-period: Define a grace period after container start-up before healthchecks begin
 
 networks:
   api_network1:
