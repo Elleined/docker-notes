@@ -377,8 +377,8 @@ services:
    db:
     healthcheck:
       test: # Execute a command to check if service is running correctly
-      interval: 1m30s # This sets the maximum time the health check can take to complete successfully. Here, it's set to 10s, meaning the check will be considered failed if it doesn't receive a response within 10 seconds.
-      timeout: 10s # Maximum time for check to succeed (default: 10s)
+      interval: 1m30s # This defines how often the health check should be run. In this case, 1m30s means it will run every 1 minute and 30 seconds.
+      timeout: 10s # This sets the maximum time the health check can take to complete successfully. Here, it's set to 10s, meaning the check will be considered failed if it doesn't receive a response within 10 seconds.
       retries: 3 # This defines the number of times the health check will be retried if it fails initially. Here, it's set to 3, meaning it will attempt the check three times before considering it a complete failure.
       start-period: 2m # This defines a delay before the first health check is run after the service starts. Here, it's set to 2m, meaning the health check will wait for 2 minutes before performing the first test.
 
