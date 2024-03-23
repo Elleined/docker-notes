@@ -397,3 +397,9 @@ secrets:
     name: api_secret # Replace api_network with your custom secret name
   api_secret2:
 ```
+
+# Magic Commands
+- Deletes all stopped containers, unused networks, build cache, unused volumes and dangling images
+```
+docker system prune --volumes
+```
