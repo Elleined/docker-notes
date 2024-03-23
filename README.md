@@ -399,7 +399,7 @@ secrets:
 ```
 
 # Magic Commands
-- Deletes all stopped containers, unused networks, build cache, unused volumes and dangling images
+- Forcefully deletes all stopped containers, unused networks, build cache, unused volumes and dangling images
 ```
-docker system prune --volumes
+docker system prune --volumes -f
 ```
