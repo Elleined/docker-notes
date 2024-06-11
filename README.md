@@ -403,3 +403,8 @@ secrets:
 ```
 docker system prune --volumes -f
 ```
+
+- Deletes all docker images
+```
+docker rmi -f $(docker images -aq)
+```
