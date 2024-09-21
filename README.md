@@ -247,9 +247,9 @@ docker run -v <path-to-local>:<path-to-container>
 ## Docker volume conclusion
 - If you notice the docker volume uses the volume right? and the bind mount using you file system right? as first parameter. So I want you to think it this way for you to understand the concept.
 
-So when using bind bount we are using our own file system basically just making the targeted folder behaves just like a shared folder path-to-local:path-to-container.
+So when using bind bount we are using our own file system basically just making the targeted folder behaves just like a shared folder path-to-local:path-to-container. Also you can think it their are syncing in vise versa any changes or either of the path will be reflected to each other.
 
-So when using volume itself instead of using our own file system were gonna use the docker own file system think of it as docker has his own file explorer that you cannot see. Thats why the syntax is volume-name:path-to-container. Were gonna the volume as substitute to our file system.
+So when using volume itself instead of using our own file system were gonna tell the docker to create its own file system that you cannot see. Thats why the syntax is volume-name:path-to-container. Were gonna use the volume as substitute to our file system. Also behind the scene youre saying the anything that will be read/write in this path-to-container will be read/write to the volume instead. Basically path-to-container acts like a pointer to the volume.
 
 Thats why im saying that use volumes if you dont require a direct access in data just like databases. and use bind mount instead when you requires direct access to data like file, videos, etc...
 
