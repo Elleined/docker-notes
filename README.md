@@ -425,3 +425,7 @@ docker system prune --volumes -f
 ```
 docker rmi -f $(docker images -aq)
 ```
+- Use this instead of docker ps -a
+```
+docker ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}"
+```
