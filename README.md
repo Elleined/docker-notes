@@ -226,10 +226,9 @@ docker-compose down
 
 ## Two ways to persist data when using containers
 - volume: mainly used if the data does not requires direct access like databases.
-- bind mounts: mainly use if the data requires direct access like files, pictures, videos, etc...
+- *bind mounts*: mainly use if the data requires direct access like files, pictures, videos, etc... Basically making the targeted folder just behaves like a typical shared folder.
 
 ## Why use Volumes
-- Provide data persistence outside the container that can be use internally(Localhost) and externally(cloud services).
 - Easier volume management because volumes can be manage via docker commands(Will be discussed later).
 - Sharing data accross different containers.
 
