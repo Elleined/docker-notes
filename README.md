@@ -225,8 +225,9 @@ docker-compose down
 - Since container is a virtualize OS it means that they don't have data persistence and all the data will be deleted once the container is removed. And sometimes we want to save the data inside the container that why VOLUMES comes into picture, volumes are used to shared host OS files or directory inside the container or vise versa granting container and host OS to access host OS file system/ Container to have Data Persistence.
 
 ## Two ways to persist data when using containers
-- volume: mainly used if the data does not requires direct access like databases.
-- *bind mounts*: mainly use if the data requires direct access like files, pictures, videos, etc... Basically making the targeted folder just behaves like a typical shared folder.
+- *volume*: mainly used if the data does not requires direct access like databases.
+
+- *bind mounts*: mainly use if the data requires direct access like files, pictures, videos, etc... Basically making the targeted folder behaves just like a typical shared folder.
 
 ## Why use Volumes
 - Easier volume management because volumes can be manage via docker commands(Will be discussed later).
@@ -235,13 +236,22 @@ docker-compose down
 ## Docker volume syntax
 - Method 1: Using a named volume and container directory.
 ```
-docker run -v <volume_name>:<local_pre_defined_directory>
+docker run -v <volume_name>:<path-to-container>
 ```
 
 ## Docker bind mount syntax
 ```
 docker run -v <path-to-local>:<path-to-container>
 ```
+
+## Docker volume conclusion
+- If you notice the docker volume uses the volume right? and the bind mount using you file system right? as first parameter. So I want you to think it this way for you to understand the concept.
+
+So when using bind bount we are using our own file system basically just making the targeted folder behaves just like a shared folder path-to-local:path-to-container.
+
+So when using volume itself instead of using our own file system were gonna use the docker own file system think of it as docker has his own file explorer that you cannot see. Thats why the syntax is volume-name:path-to-container. Were gonna the volume as substitute to our file system.
+
+Thats why im saying that use volumes if you dont require a direct access in data just like databases. and use bind mount instead when you requires direct access to data like file, videos, etc...
 
 ####### Note: Docker run -v is a short version and --mount is the verbose version
 
