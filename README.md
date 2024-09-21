@@ -183,7 +183,6 @@ docker volume ls
 docker volume inspect <volume_name | volume_id>
 ```
 
-
 ## Docker Compose Commands
 - *docker-compose start*: will start the stopped containers.
 ```
@@ -225,6 +224,10 @@ docker-compose down
 # Docker volume
 - Since container is a virtualize OS it means that they don't have data persistence and all the data will be deleted once the container is removed. And sometimes we want to save the data inside the container that why VOLUMES comes into picture, volumes are used to shared host OS files or directory inside the container or vise versa granting container and host OS to access host OS file system/ Container to have Data Persistence.
 
+## Two ways to persist data when using containers
+- volume: mainly used if the data does not requires direct access like databases.
+- bind mounts: mainly use if the data requires direct access like files, pictures, videos, etc...
+
 ## Why use Volumes
 - Provide data persistence outside the container that can be use internally(Localhost) and externally(cloud services).
 - Easier volume management because volumes can be manage via docker commands(Will be discussed later).
@@ -233,7 +236,12 @@ docker-compose down
 ## Docker volume syntax
 - Method 1: Using a named volume and container directory.
 ```
-docker run -v <volume_name>:<container_pre_defined_directory>
+docker run -v <volume_name>:<local_pre_defined_directory>
+```
+
+## Docker bind mount syntax
+```
+docker run -v <path-to-local>:<path-to-container>
 ```
 
 ####### Note: Docker run -v is a short version and --mount is the verbose version
