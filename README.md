@@ -454,3 +454,8 @@ docker rmi -f $(docker images -aq)
 ```
 docker ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}"
 ```
+
+- Downing a docker compose
+```
+docker-compose down --volumes --rmi all --remove-orphans
+```
