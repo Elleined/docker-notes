@@ -255,6 +255,31 @@ Thats why im saying that use volumes if you dont require a direct access in data
 
 ####### Note: Docker run -v is a short version and --mount is the verbose version
 
+
+# Distroless images
+https://github.com/GoogleContainerTools/distroless
+- It is a minimalist image contains only what is needed to run your app. For example it only contains your java jdk, java dependencies thats it nothing else even a simple command ls it doesnt work because it is a minimalist container design only to run your app.
+
+- Increase container security: Because distroless images only contain what is essential for your app to run. It doesn't even have a simple ls command, curl, wget, and bash features command basically it's just your app and its dependencies needed to operate.
+
+
+# Multistage builds
+- It is a process where you will have many stages to build your docker image and produce only a minimalist final build stage thus resulting in smaller size images. Unlike a single stage build where you will execute all the docker commands there and ending up creating a large container because you get the base image from ubuntu which is for example 800MB, a Java JDK installed with it around 250MB plus dependencies 50MB, And a MySQL image which arounds 500MB almost 1GB of image with multistage you will break down all of that into different build stages and come up with final stage which only contains just your java binaries and mysql to run your app.
+
+## Multistage build real world analogy
+- Let's take a car factory for example. Think of every step is equal to every stage of build.
+
+Step 1: Manufacturing parts
+- In this stage this is where the main parts are created engine, seats, tires, etc... This is where the large machinery and tools are located you didn't want these machinery and tools to be in your final car right?.
+
+Step 2: Assembly
+- In this stage the manufactured parts will be shipped here and start the assembly process. Leaving those machinery and tools behind from the previous step.
+
+Step 3: Final product
+- This is where your final product comes in this case your car is ready to use and fully working. It doesn't include the machinery, tools, and equipment used in previous steps it only your car is fully working now.
+
+Just like in multistage build this is what's happening when you use multistage docker build not using multistage docker build it like doing all the three steps in just one process making your final product large and vulnerable.
+
 # Dockerfile
 - Used to create a docker image.
 
