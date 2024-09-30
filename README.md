@@ -450,6 +450,12 @@ docker system prune --volumes -f
 ```
 docker rmi -f $(docker images -aq)
 ```
+
+- Deletes all docker container
+```
+docker rm $(docker ps -aq)
+```
+
 - Use this instead of docker ps -a
 ```
 docker ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}"
@@ -457,5 +463,10 @@ docker ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}"
 
 - Downing a docker compose
 ```
-docker-compose down --volumes --rmi all --remove-orphans
+docker compose down --volumes --rmi all --remove-orphans
+```
+
+- Up a docker compose
+```
+docker comppse up --build -d
 ```
