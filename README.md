@@ -470,3 +470,8 @@ docker compose down --volumes --rmi all --remove-orphans
 ```
 docker comppse up --build -d
 ```
+
+- PRevent docker compose restart your containers on boot up
+```
+docker update --restart=no $(docker container ls -aq)
+```
